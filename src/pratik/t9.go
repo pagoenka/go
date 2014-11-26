@@ -52,8 +52,13 @@ func main() {
 		fmt.Print("Case #", itr, ": ")
 		fileScanner.Scan()
 		arrStrings := strings.Split(fileScanner.Text(), "")
+		var prevKey int = 00000
 		for str := range arrStrings {
+			if strings.Contains(strconv.Itoa(t9map[arrStrings[str]]), strconv.Itoa(prevKey)) {
+				fmt.Print(" ")
+			}
 			fmt.Print(t9map[arrStrings[str]])
+			prevKey = t9map[arrStrings[str]] % 10
 		}
 		fmt.Println("")
 	}
